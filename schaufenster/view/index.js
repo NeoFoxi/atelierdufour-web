@@ -6,7 +6,7 @@ document.getElementById("img").src = `/schaufenster/api/object/${urlId}/img.jpg`
     fetch(`/schaufenster/api/object/${urlId}/properties.json`)
 .then(response => response.json())
 .then(objectPropertiesjson => {
-    document.getElementById("card-title").innerText = objectPropertiesjson.title;
-    document.getElementById("card-date").innerText = `${objectPropertiesjson.date.from} – ${objectPropertiesjson.date.to}`;
-    document.getElementById("card-description").innerText = objectPropertiesjson.description;
+    document.getElementById("card-title").innerHTML = objectPropertiesjson.title;
+    document.getElementById("card-date").innerHTML = `${objectPropertiesjson.date.from} – ${objectPropertiesjson.date.to}`;
+    document.getElementById("card-description").innerHTML = objectPropertiesjson.description;
 })
