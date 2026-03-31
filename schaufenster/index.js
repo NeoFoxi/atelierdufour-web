@@ -1,23 +1,23 @@
 fetch(`/schaufenster/api/properties.json`)
   .then(response => response.json())
-  .then(Propertiesjson => {
+  .then(async Propertiesjson => {
 
     for (let i = Propertiesjson.last_post; i >= 1; i--) {
       let number = i.toString().padStart(3, '0');
 
-      fetch(`/schaufenster/api/object/${number}/properties.json`)
-        .then(response => response.json())
-        .then(objectPropertiesjson => {
-          object.innerHTML += `
+        const response = await fetch(`/schaufenster/api/object/${number}/properties.json`);
+        const objectPropertiesjson = await response.json();
+
+        object.innerHTML += `
           <div style="
-              display: flex; 
-              flex-direction: column; 
+              display: flex;
+              flex-direction: column;
               width: 280px;
-              height: 520px; 
-              border: 1px solid #ccc; 
+              height: 520px;
+              border: 1px solid #ccc;
               border-radius: 12px;
               padding: 20px;
-              margin: 15px; 
+              margin: 15px;
               box-shadow: 0 4px 10px rgba(0,0,0,0.15);
               font-family: sans-serif;
               background-color: white;
@@ -25,7 +25,7 @@ fetch(`/schaufenster/api/properties.json`)
           ">
               
               <div style="width: 100%; height: 180px; overflow: hidden; border-radius: 8px; flex-shrink: 0; background-color: #f0f0f0;">
-                  <img src="/schaufenster/api/object/${number}/img.jpg"  
+                  <img src="/schaufenster/api/object/${number}/img.jpg"
                       style="width: 100%; height: 100%; object-fit: cover;">
               </div>
 
@@ -41,44 +41,44 @@ fetch(`/schaufenster/api/properties.json`)
                 target="_blank" 
                 rel="noopener noreferrer"
                 style="
-                  display: block; 
-                  font-size: 1em; 
-                  color: #555; 
-                  text-decoration: underline; 
-                  margin-bottom: 12px; 
-                  white-space: nowrap; 
-                  overflow: hidden; 
+                  display: block;
+                  font-size: 1em;
+                  color: #555;
+                  text-decoration: underline;
+                  margin-bottom: 12px;
+                  white-space: nowrap;
+                  overflow: hidden;
                   text-overflow: ellipsis;
                 ">
                   ${objectPropertiesjson.website}
               </a>
               
               <p style="
-                  font-size: 1em; 
-                  color: #555; 
+                  font-size: 1em;
+                  color: #555;
                   line-height: 1.4;
-                  margin-bottom: 15px; 
-                  flex-grow: 1; 
-                  overflow: hidden; 
+                  margin-bottom: 15px;
+                  flex-grow: 1;
+                  overflow: hidden;
                   display: -webkit-box;
-                  -webkit-line-clamp: 4; 
+                  -webkit-line-clamp: 4;
                   -webkit-box-orient: vertical;
               ">
                   ${objectPropertiesjson.description}
               </p>
 
-              <button onclick="window.location.href='/schaufenster/view/?id=${number}'" 
+              <button onclick="window.location.href='/schaufenster/view/?id=${number}'"
                       style="
-                        width: 100%; 
-                        padding: 12px; 
-                        background-color: #555; 
-                        color: white; 
-                        border: none; 
-                        border-radius: 6px; 
-                        cursor: pointer; 
-                        font-size: 1.1em; 
-                        font-weight: bold; 
-                        margin-top: auto; 
+                        width: 100%;
+                        padding: 12px;
+                        background-color: #555;
+                        color: white;
+                        border: none;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        font-size: 1.1em;
+                        font-weight: bold;
+                        margin-top: auto;
                         flex-shrink: 0;
                         transition: background 0.2s;
                       "
@@ -88,6 +88,5 @@ fetch(`/schaufenster/api/properties.json`)
               </button>
           </div>
         `;
-        })
     }
   })
