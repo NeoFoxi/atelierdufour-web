@@ -1,9 +1,9 @@
 const images = [
-      "http://atelierdufour.ch/assets/atelierdufour/img/2.png",
-      "http://atelierdufour.ch/assets/atelierdufour/img/3.png",
-      "http://atelierdufour.ch/assets/atelierdufour/img/4.png",
-      "http://atelierdufour.ch/assets/atelierdufour/img/5.png",
-      "http://atelierdufour.ch/assets/atelierdufour/img/6.png"
+      "http://atelierdufour.ch/assets/atelierdufour/textures/2.png",
+      "http://atelierdufour.ch/assets/atelierdufour/textures/3.png",
+      "http://atelierdufour.ch/assets/atelierdufour/textures/4.png",
+      "http://atelierdufour.ch/assets/atelierdufour/textures/5.png",
+      "http://atelierdufour.ch/assets/atelierdufour/textures/6.png"
     ];
 
     const slider = document.getElementById("slider");
