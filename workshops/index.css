@@ -1,13 +1,16 @@
 :root {
-  --bg: #fff8f0;
+  --bg: color(display-p3 .941 .898 .867);
   --card: #ffffff;
   --text: #2e2a24;
   --muted: #7a6e64;
-  --accent1: #fde8cc;
-  --accent2: #fcd5b4;
-  --shadow: 0 14px 40px rgba(160, 100, 40, .14);
-  --radius: 20px;
+  --radius: 18px;
   --max: 1100px;
+}
+
+@supports not (color: color(display-p3 1 1 1)) {
+  :root {
+    --bg: rgb(240, 229, 221);
+  }
 }
 
 * { box-sizing: border-box; }
@@ -15,21 +18,17 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background:
-    radial-gradient(1200px 600px at 10% -10%, var(--accent2), transparent 60%),
-    radial-gradient(900px 500px at 90% 0%, var(--accent1), transparent 55%),
-    var(--bg);
+  background: var(--bg);
   color: var(--text);
   line-height: 1.6;
 }
 
 .nav-modern {
-  width: 100%;
   background: #333;
   color: #fff;
   overflow: visible;
   border-radius: 14px;
-  margin-bottom: 16px;
+  margin: 24px 24px 16px;
 }
 
 .nav-modern ul {
@@ -54,7 +53,14 @@ body {
   white-space: nowrap;
 }
 
-.nav-modern a:hover { background: #666; }
+.nav-modern a:hover {
+  background: #666;
+  text-decoration: none;
+}
+
+.nav-modern li:first-child > a {
+  border-radius: 14px 0 0 14px;
+}
 
 .nav-modern .dropdown-content {
   display: none;
@@ -66,22 +72,35 @@ body {
   border-radius: 0 0 14px 14px;
   top: 100%;
   left: 0;
+  overflow: hidden;
 }
 
-.nav-modern li:hover .dropdown-content { display: block; }
+.nav-modern li:hover .dropdown-content {
+  display: block;
+}
 
 .nav-modern .dropdown-content a {
   padding: 12px 15px;
   text-align: left;
   white-space: nowrap;
+  border-radius: 0;
 }
 
-.nav-modern .dropdown-content a:hover { background-color: #666; }
+.nav-modern .dropdown-content a:last-child {
+  border-radius: 0 0 14px 14px;
+}
+
+.nav-modern .dropdown-content a:hover {
+  background-color: #666;
+}
 
 @media (max-width: 600px) {
   .nav-modern .dropdown-content {
     position: static;
     box-shadow: none;
+    border-radius: 0;
+  }
+  .nav-modern .dropdown-content a:last-child {
     border-radius: 0;
   }
 }
@@ -170,7 +189,7 @@ h2 {
 
 p { margin: 0 0 10px; }
 ul { padding-left: 18px; margin: 10px 0 0; color: var(--muted); }
-li { margin: 6px 0; }
+main li { margin: 6px 0; }
 strong { color: #5a3010; }
 
 @media (max-width: 900px) {

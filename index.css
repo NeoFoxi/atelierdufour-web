@@ -67,6 +67,10 @@ body {
   text-decoration: none;
 }
 
+.nav-modern li:first-child > a {
+  border-radius: 14px 0 0 14px;
+}
+
 .nav-modern .dropdown-content {
   display: none;
   position: absolute;
@@ -77,6 +81,7 @@ body {
   border-radius: 0 0 14px 14px;
   top: 100%;
   left: 0;
+  overflow: hidden;
 }
 
 .nav-modern li:hover .dropdown-content {
@@ -87,6 +92,11 @@ body {
   padding: 12px 15px;
   text-align: left;
   white-space: nowrap;
+  border-radius: 0;
+}
+
+.nav-modern .dropdown-content a:last-child {
+  border-radius: 0 0 14px 14px;
 }
 
 .nav-modern .dropdown-content a:hover {
@@ -97,6 +107,9 @@ body {
   .nav-modern .dropdown-content {
     position: static;
     box-shadow: none;
+    border-radius: 0;
+  }
+  .nav-modern .dropdown-content a:last-child {
     border-radius: 0;
   }
 }

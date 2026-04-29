@@ -1,11 +1,11 @@
-fetch(`/schaufenster/api/properties.json`)
+fetch(`/schaufenster/data/properties.json`)
   .then(response => response.json())
   .then(async Propertiesjson => {
 
     for (let i = Propertiesjson.last_post; i >= 1; i--) {
       let number = i.toString().padStart(3, '0');
 
-        const response = await fetch(`/schaufenster/api/object/${number}/properties.json`);
+        const response = await fetch(`/schaufenster/data/object/${number}/properties.json`);
         const objectPropertiesjson = await response.json();
 
         object.innerHTML += `
@@ -25,7 +25,7 @@ fetch(`/schaufenster/api/properties.json`)
           ">
               
               <div style="width: 100%; height: 180px; overflow: hidden; border-radius: 8px; flex-shrink: 0; background-color: #f0f0f0;">
-                  <img src="/schaufenster/api/object/${number}/img.jpg"
+                  <img src="/schaufenster/data/object/${number}/img.jpg"
                       style="width: 100%; height: 100%; object-fit: cover;">
               </div>
 
