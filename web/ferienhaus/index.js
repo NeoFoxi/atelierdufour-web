@@ -1,4 +1,4 @@
-const images = [
+const imgs = [
   "/assets/ferienhaus/textures/1.webp",
   "/assets/ferienhaus/textures/2.webp",
   "/assets/ferienhaus/textures/3.webp",
@@ -43,7 +43,7 @@ function buildNav() {
   dotsEl.innerHTML = "";
   thumbsEl.innerHTML = "";
 
-  images.forEach((src, i) => {
+  imgs.forEach((src, i) => {
     const d = document.createElement("button");
     d.className = "dot";
     d.onclick = () => goTo(i);
@@ -67,12 +67,12 @@ function goTo(i) {
   animating = true;
   const direction = i > index ? 1 : -1;
 
-  const nextIndex = (i + images.length) % images.length;
+  const nextIndex = (i + imgs.length) % imgs.length;
   const current = activeA ? layerA : layerB;
   const next = activeA ? layerB : layerA;
   const nextImg = activeA ? imgB : imgA;
 
-  nextImg.src = images[nextIndex];
+  nextImg.src = imgs[nextIndex];
   setLayer(next, 100 * direction, false);
   setLayer(current, 0, false);
   next.offsetWidth;
@@ -91,11 +91,11 @@ function goTo(i) {
 
 function nextPic() {
   if (animating) return;
-  goTo((index + 1) % images.length);
+  goTo((index + 1) % imgs.length);
 }
 function prevPic() {
   if (animating) return;
-  goTo((index - 1 + images.length) % images.length);
+  goTo((index - 1 + imgs.length) % imgs.length);
 }
 
 document.getElementById("nextBtn").onclick = nextPic;
@@ -107,7 +107,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 buildNav();
-imgA.src = images[0];
+imgA.src = imgs[0];
 setLayer(layerA, 0, false);
 setLayer(layerB, 100, false);
 updateUI();
