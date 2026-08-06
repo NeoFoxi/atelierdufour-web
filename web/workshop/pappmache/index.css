@@ -119,7 +119,7 @@ body {
   align-items: flex-end;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 248, 240, .95)),
-    url("http://atelierdufour.ch/assets/atelierdufour/textures/4.png");
+    url("/assets/atelierdufour/textures/4.webp");
   background-size: cover;
   background-position: center;
 }
