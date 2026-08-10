@@ -25,7 +25,7 @@ fetch(`/schaufenster/data/properties.json`)
           ">
               
               <div style="width: 100%; height: 180px; overflow: hidden; border-radius: 8px; flex-shrink: 0; background-color: #f0f0f0;">
-                  <img src="/schaufenster/data/object/${number}/img.jpg"
+                  <img src="/schaufenster/data/object/${number}/img.webp"
                       style="width: 100%; height: 100%; object-fit: cover;">
               </div>
 
