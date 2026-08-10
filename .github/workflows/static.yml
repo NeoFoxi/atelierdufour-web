@@ -24,21 +24,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.21'
+      - name: Install minify-all
+        run: npm install -g minify-all
 
-      - name: Install tdewolff/minify
-        run: |
-          go install github.com/tdewolff/minify/v2/cmd/minify@latest
-          echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
-
-      - name: Minify entire web directory
-        run: |
-          minify --recursive --output web.min web
-          rm -rf web
-          mv web.min web
+      - name: Minify web folder
+        run: minify-all web
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
