@@ -24,12 +24,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install minification tools
-        run: |
-          npm install -g minify-all uglifyjs clean-css html-minifier-terser
+      - name: Install minify-folder
+        run: npm install -g minify-folder
 
       - name: Minify web folder
-        run: minify-all web
+        run: minify-folder web
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
