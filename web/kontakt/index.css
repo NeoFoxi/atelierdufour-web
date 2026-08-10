@@ -76,6 +76,10 @@ a:hover {
   text-decoration: underline;
 }
 
+address a:hover {
+  text-decoration: none;
+}
+
 .nav-button {
   display: inline-block;
   margin-top: 24px;
@@ -85,13 +89,14 @@ a:hover {
   color: #fff;
   font-weight: 700;
   letter-spacing: .3px;
-  transition: transform .15s ease, box-shadow .15s ease;
+  transition: background .15s ease, color .15s ease;
   text-align: center;
 }
 
 .nav-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, .25);
+  background: #3a3a3a;
+  color: #fff;
+  text-decoration: none;
 }
 
 .map {
