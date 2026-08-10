@@ -1,0 +1,29 @@
+/* Shared base/reset styles for the whole site.
+ *
+ * Centralizes the boilerplate that every page would otherwise copy-paste:
+ * universal box-sizing, the default page background (with a safe fallback for
+ * browsers without display-p3 support), and the base <body> typography.
+ *
+ * Pages still declare their own design tokens (--card, --text, etc.) in their
+ * :root, and may override the base <body> props or --bg as needed.
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: color(display-p3 .941 .898 .867);
+}
+
+@supports not (color: color(display-p3 1 1 1)) {
+  :root {
+    --bg: rgb(240, 229, 221);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+}

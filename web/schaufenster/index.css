@@ -2,22 +2,8 @@
   width: 100%;
   margin: 0 0 16px;
 }
-
-:root {
-  --bg: color(display-p3 .941 .898 .867);
-}
-
-@supports not (color: color(display-p3 1 1 1)) {
-  :root {
-    --bg: rgb(240, 229, 221);
-  }
-}
-
 body {
-    margin: 0;
     padding: 24px;
-    background: var(--bg);
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
 #object {
