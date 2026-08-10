@@ -68,3 +68,25 @@ body {
     color: #666;
     margin: 0;
 }
+
+.error-message {
+    width: 100%;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.error-message h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.8rem;
+    color: #c0392b;
+}
+
+.error-message p {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 0 0 25px 0;
+}
