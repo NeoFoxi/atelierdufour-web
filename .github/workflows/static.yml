@@ -26,7 +26,7 @@ jobs:
 
       - name: Install minification tools
         run: |
-          npm install -g minify-all uglify-js clean-css html-minifier-terser
+          npm install -g minify-all uglifyjs clean-css html-minifier-terser
 
       - name: Minify web folder
         run: minify-all web
