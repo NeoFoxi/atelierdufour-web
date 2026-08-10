@@ -24,11 +24,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install minify-folder
-        run: npm install -g minify-folder
+      - name: Install minify-all-cli
+        run: npm install -g minify-all-cli
 
       - name: Minify web folder
-        run: minify-folder web
+        run: minify-all-cli web
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
