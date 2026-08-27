@@ -1,3 +1,9 @@
+/* Page: Kontakt (Contact)
+ *
+ * Card-based layout with address and Google Maps embed. Neutral grey
+ * color scheme with blue accent for links.
+ */
+
 :root {
   --card: #fff;
   --fg: #222;
@@ -30,7 +36,7 @@ main {
 
 h1 {
   margin: 0 0 24px;
-  font-size: 2rem;
+  font-size: 2.4rem;
 }
 
 .content-wrapper {
@@ -45,12 +51,16 @@ h1 {
     align-items: flex-start;
   }
 
-  address {
+/* --- Address & links -------------------------------------------------- */
+
+address {
     flex: 1;
     min-width: 280px;
   }
 
-  .map {
+/* --- Map embed -------------------------------------------------------- */
+
+.map {
     flex: 1.5;
     margin-top: 0 !important;
   }
@@ -112,20 +122,26 @@ address a:hover {
 }
 
 @media (max-width: 600px) {
-  body {
+/* --- Layout ----------------------------------------------------------- */
+
+body {
     padding: 12px;
   }
 
-  main {
+/* --- Main content card ------------------------------------------------ */
+
+main {
     padding: 24px 16px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, .05);
   }
 
   h1 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 
-  .nav-button {
+/* --- Navigation button ------------------------------------------------ */
+
+.nav-button {
     display: block;
     width: 100%;
   }

@@ -1,21 +1,7 @@
-:root {
-  --card: #ffffff;
-  --text: #2e2a24;
-  --muted: #7a6e64;
-  --radius: 18px;
-  --max: 1100px;
-}
-
-body {
-  color: var(--text);
-  line-height: 1.6;
-}
-
-.container {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 20px;
-}
+/* Page: Siebdruck — unique overrides only.
+ *
+ * Background-image hero. Shared workshop styles come from /src/workshop/index.css.
+ */
 
 .hero {
   min-height: 60vh;
@@ -31,84 +17,4 @@ body {
 .hero-inner {
   width: 100%;
   padding: 600px 0 0;
-}
-
-.hero-card {
-  width: 100%;
-  background: rgba(255, 255, 255, .86);
-  backdrop-filter: blur(6px);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 26px;
-}
-
-h1 {
-  margin: 0;
-  font-size: 2.4rem;
-  line-height: 1.15;
-  color: #5a3010;
-}
-
-main {
-  padding: 50px 0 80px;
-}
-
-section {
-  margin-bottom: 32px;
-}
-
-.card {
-  background: var(--card);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 26px;
-}
-
-h2 {
-  margin: 0 0 10px;
-  font-size: 1.35rem;
-  color: #7a3a10;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-}
-
-p {
-  margin: 0 0 10px;
-}
-
-ul {
-  padding-left: 18px;
-  margin: 10px 0 0;
-  color: var(--muted);
-}
-
-main li {
-  margin: 6px 0;
-}
-
-strong {
-  color: #5a3010;
-}
-
-.form-wrap {
-  overflow: hidden;
-  border-radius: 16px;
-  padding-bottom: 40px;
-}
-
-.form-iframe {
-  width: 100%;
-  height: 600px;
-  border: 0;
-  display: block;
-}
-
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
 }

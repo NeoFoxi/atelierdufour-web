@@ -1,3 +1,9 @@
+/* Page: Über mich (About Me)
+ *
+ * Card-based layout with portrait image and biography text. Neutral grey
+ * color scheme with blue accent for links.
+ */
+
 :root {
   --fg: #222;
   --accent: #0066cc;
@@ -30,7 +36,7 @@ main {
 
 h1 {
   margin: 0 0 24px;
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   color: var(--dark);
 }
 
@@ -41,7 +47,9 @@ h1 {
 }
 
 @media (min-width: 768px) {
-  .about-container {
+/* --- About section (image + text) -------------------------------------- */
+
+.about-container {
     flex-direction: row;
     align-items: flex-start;
   }
@@ -79,11 +87,15 @@ h1 {
 }
 
 @media (max-width: 600px) {
-  body {
+/* --- Layout ----------------------------------------------------------- */
+
+body {
     padding: 12px;
   }
 
-  main {
+/* --- Main content card ------------------------------------------------ */
+
+main {
     padding: 24px 16px;
   }
 

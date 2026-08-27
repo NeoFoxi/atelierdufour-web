@@ -1,3 +1,10 @@
+/* Schaufenster detail view.
+ *
+ * Reads the ?id= query parameter (must be a 3-digit number like "001"),
+ * fetches the corresponding object data, and populates the card. Shows an
+ * error message if the ID is invalid or the data cannot be loaded.
+ */
+
 const urlIdParams = new URLSearchParams(window.location.search);
 const urlId = urlIdParams.get('id');
 

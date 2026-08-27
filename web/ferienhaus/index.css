@@ -1,3 +1,9 @@
+/* Page: Ferienhaus (Holiday House Rental)
+ *
+ * Side-by-side layout (slider left, info right) on desktop, stacked on mobile.
+ * Image slider with thumbnails, pricing, description, and contact card.
+ */
+
 :root {
   --bg: #f5f5f5;
   --card: #ffffff;
@@ -11,6 +17,8 @@
   --ease: cubic-bezier(.22, .8, .2, 1);
 }
 
+/* --- Layout ----------------------------------------------------------- */
+
 body {
   min-height: 100vh;
   display: flex;
@@ -19,10 +27,13 @@ body {
   padding: 24px;
   color: var(--text);
 }
+
 .nav-modern {
   width: 100%;
   margin: 0 0 16px;
 }
+
+/* --- Listing container ------------------------------------------------ */
 
 .listing-container {
   width: min(100%, var(--maxw));
@@ -39,6 +50,8 @@ body {
     flex-direction: row;
   }
 }
+
+/* --- Image slider ----------------------------------------------------- */
 
 .gallery-section {
   flex: 1 1 50%;
@@ -154,6 +167,8 @@ body {
   border: 2px solid var(--primary);
 }
 
+/* --- Info section ----------------------------------------------------- */
+
 .info-section {
   flex: 1 1 50%;
   min-width: 0;
@@ -176,7 +191,7 @@ body {
 
 .listing-title {
   margin: 0 0 10px 0;
-  font-size: 24px;
+  font-size: 2.4rem;
   line-height: 1.3;
   color: #1a1a1a;
 }
@@ -207,11 +222,13 @@ body {
 }
 
 .description {
-  font-size: 15px;
+  font-size: 1rem;
   line-height: 1.6;
   color: var(--text);
   margin-bottom: 30px;
 }
+
+/* --- Contact card ----------------------------------------------------- */
 
 .contact-card {
   background: #f9f9f9;
@@ -225,6 +242,24 @@ body {
   font-weight: 600;
   margin-bottom: 8px;
   font-size: 15px;
+}
+
+.contact-description {
+  margin-top: 0;
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 15px;
+}
+
+.contact-info {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.contact-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .contact-btn {

@@ -1,7 +1,14 @@
+/* Page: Workshops (Overview)
+ *
+ * Warm brown color scheme. Background image covers the entire page. Workshop
+ * cards link to individual workshop detail pages.
+ */
+
 :root {
   --card: #ffffff;
   --text: #2e2a24;
   --muted: #7a6e64;
+  --shadow: 0 4px 12px rgba(0, 0, 0, .1);
   --radius: 18px;
   --max: 1100px;
 }
@@ -21,6 +28,8 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
+
+/* --- Hero section ----------------------------------------------------- */
 
 .hero {
   min-height: 60vh;
@@ -71,6 +80,8 @@ h2 {
   grid-template-columns: 1fr 1fr;
   gap: 22px;
 }
+
+/* --- Workshop cards --------------------------------------------------- */
 
 .workshop-grid {
   display: grid;

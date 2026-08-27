@@ -1,3 +1,16 @@
+/* Homepage image slider.
+ *
+ * Uses two transparent layers (A/B) that alternate: the incoming layer slides
+ * in from the left or right while the outgoing layer slides out in the opposite
+ * direction. This avoids white flashes between transitions.
+ *
+ * Auto-play advances every 3 seconds and pauses on hover. Keyboard arrows
+ * and dot buttons provide manual navigation.
+ *
+ * Slide text is fitted to the available space using a binary search over font
+ * sizes between --text-min and --text-max (defined in CSS).
+ */
+
 const images = [
       "/images/atelierdufour/2.webp",
       "/images/atelierdufour/3.webp",
@@ -6,6 +19,7 @@ const images = [
       "/images/atelierdufour/6.webp"
     ];
 
+    /* Preload all slider images so transitions are instant. */
     function preloadImages() {
       images.forEach(src => {
         const img = new Image();
@@ -24,19 +38,21 @@ const images = [
     const slideText = document.getElementById("slideText");
 
     const slideTexts = [
-      "\"Der Schatten macht uns ganz. Er ist der Boden, aus dem Licht aus dem erst entstehen kann.\"",
+      "\"Der Schatten macht uns ganz. Er ist der Boden, aus dem Licht, das erst entstehen kann.\"",
       "\"Ich werde dir die Hand reichen, nicht um dich aus dem Schatten zu ziehen sondern um dort mit dir zu stehen, bis die Dunkelheit ihre eigenen Farben zeigt.\"",
       "\"Ich bin nicht hier um die Schatten auszulöschen, sondern um zu lernen wie ich mich nicht wieder in ihnen verliere.\"",
-      "\"Heilung bedeutet die Risse zu ehren, das Prisma zu nehmen und das Licht des Lebens in all seinen farben zu brechen.\"",
-      "\"Fertraue dem Prozess, auch wenn du nicht siehst wohin er dich führt. Die Schatten sind nur ein Teil des Weges.\""
+      "\"Heilung bedeutet die Risse zu ehren, das Prisma zu nehmen und das Licht des Lebens in all seinen Farben zu brechen.\"",
+      "\"Vertraue dem Prozess, auch wenn du nicht siehst, wohin er dich führt. Die Schatten sind nur ein Teil des Weges.\""
     ];
 
+    /* Display the quote for the current slide and trigger text fitting. */
     function updateSlideText() {
       slideText.textContent = slideTexts[index] || "";
       slideText.style.opacity = slideTexts[index] ? "1" : "0";
       fitSlideText();
     }
 
+    /* Binary-search font size so the text fits within 42% of slider height. */
     function fitSlideText() {
       if (!slideText.textContent) return;
       const style = getComputedStyle(slideText);
@@ -64,6 +80,7 @@ const images = [
     let timer = null;
     let animating = false;
 
+    /* Update dot highlights and counter text. */
     function updateUI() {
       counter.textContent = `${index + 1} / ${images.length}`;
       [...dotsEl.children].forEach((d, i) => {
@@ -71,6 +88,7 @@ const images = [
       });
     }
 
+    /* Create dot buttons — one per image. */
     function buildDots() {
       dotsEl.innerHTML = "";
       images.forEach((_, i) => {
@@ -81,11 +99,13 @@ const images = [
       });
     }
 
+    /* Position a layer at x% (instant or animated). */
     function setLayer(el, x, animate) {
       el.style.transition = animate ? "transform 420ms ease" : "none";
       el.style.transform = `translateX(${x}%)`;
     }
 
+    /* Transition to image at index i. Direction inferred from i vs current. */
     function goTo(i, manual) {
       if (animating) return;
 
@@ -125,12 +145,14 @@ const images = [
     function next(manual) { goTo(index + 1, manual); }
     function prev(manual) { goTo(index - 1, manual); }
 
+    /* Start auto-advance timer (only if toggle is checked). */
     function startAuto() {
       stopAuto();
       if (!autoToggle.checked) return;
       timer = setInterval(() => next(false), intervalMs);
     }
 
+    /* Stop auto-advance timer. */
     function stopAuto() {
       if (timer) clearInterval(timer);
       timer = null;

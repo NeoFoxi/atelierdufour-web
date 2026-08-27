@@ -1,3 +1,10 @@
+/* Ferienhaus image slider with thumbnail strip.
+ *
+ * Similar dual-layer approach to the homepage slider, but without auto-play.
+ * Thumbnails are generated dynamically from the image list and highlight the
+ * currently visible image.
+ */
+
 const imgs = [
   "/images/ferienhaus/1.webp",
   "/images/ferienhaus/2.webp",
@@ -17,6 +24,7 @@ const imgs = [
   "/images/ferienhaus/16.webp"
 ];
 
+/* Preload all images for instant transitions. */
 function preloadImages() {
   imgs.forEach(src => {
     const img = new Image();
@@ -36,6 +44,7 @@ let index = 0;
 let activeA = true;
 let animating = false;
 
+/* Highlight active dot and thumbnail. */
 function updateUI() {
   [...dotsEl.children].forEach((d, i) => {
     d.setAttribute("aria-current", i === index);
@@ -46,6 +55,7 @@ function updateUI() {
   });
 }
 
+/* Create dot buttons and thumbnail images from the image list. */
 function buildNav() {
   dotsEl.innerHTML = "";
   thumbsEl.innerHTML = "";
@@ -69,6 +79,7 @@ function setLayer(el, x, animate) {
   el.style.transform = `translateX(${x}%)`;
 }
 
+/* Transition to image at index i. */
 function goTo(i) {
   if (animating || i === index) return;
   animating = true;

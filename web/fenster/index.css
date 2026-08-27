@@ -1,15 +1,110 @@
+/* Page: Schaufenster (Window Display Gallery)
+ *
+ * Flex-wrap gallery of object cards. Cards are built dynamically via JS
+ * from JSON data files using a <template> element.
+ */
+
 .nav-modern {
   width: 100%;
   margin: 0 0 16px;
 }
+
 body {
-    padding: 24px;
+  padding: 24px;
 }
 
 #object {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-    gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  gap: 20px;
+}
+
+/* --- Fenster card ----------------------------------------------------- */
+
+.fenster-card {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  height: 520px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.fenster-card-img-wrap {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 8px;
+  flex-shrink: 0;
+  background-color: #f0f0f0;
+}
+
+.fenster-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fenster-card h3 {
+  margin: 15px 0 5px 0;
+  font-size: 1.4em;
+  height: 1.4em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.fenster-card-date {
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.fenster-card-link {
+  display: block;
+  font-size: 1em;
+  color: #555;
+  text-decoration: underline;
+  margin-bottom: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fenster-card-desc {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  flex-grow: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.fenster-card-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: auto;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.fenster-card-btn:hover {
+  background-color: #333;
 }

@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
-<html lang="de">
+﻿<!doctype html>
+<html lang="de-CH">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Schaufenster – Atelier Dufour</title>
     <link rel="stylesheet" href="/src/base/index.css">
     <link rel="stylesheet" href="/src/nav/index.css">
@@ -10,6 +10,19 @@
     <script src="/src/nav/index.js" defer></script>
 </head>
 <body>
+
+    <template id="card-template">
+        <div class="fenster-card">
+            <div class="fenster-card-img-wrap">
+                <img class="fenster-card-img">
+            </div>
+            <h3 class="fenster-card-title"></h3>
+            <div class="fenster-card-date"></div>
+            <a class="fenster-card-link" target="_blank" rel="noopener noreferrer"></a>
+            <p class="fenster-card-desc"></p>
+            <button class="fenster-card-btn">Anschauen</button>
+        </div>
+    </template>
 
     <ul id="object"></ul>
 
