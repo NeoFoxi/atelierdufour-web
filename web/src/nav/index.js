@@ -16,6 +16,7 @@
   var DEFAULT_ITEMS = [
     { href: "/", label: "Home" },
     { href: "/tonerde", label: "Tonerde" },
+    { href: "/ausdrucksmalen", label: "Ausdrucksmalen" },
     { href: "/schaufenster", label: "Schaufenster" },
     { href: "/ferienhaus", label: "Ferienhaus" },
     {
