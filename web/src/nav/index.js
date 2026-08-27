@@ -4,6 +4,10 @@
  * instead of being copy-pasted. The current page is highlighted automatically
  * via aria-current, so no per-page markup is needed.
  *
+ * Responsive UI: below 860px a hamburger button toggles a full-screen menu
+ * overlay; at 860px and above the classic horizontal bar is shown. Which UI
+ * applies is decided purely by the CSS breakpoint in src/nav/index.css.
+ *
  * Pages that need a different menu can set window.navConfig before this script:
  *   window.navConfig = {
  *     items: [ { href, label, children? }, ... ],
@@ -12,6 +16,8 @@
  */
 (function () {
   "use strict";
+
+  var MOBILE_MAX = 860;
 
   var DEFAULT_ITEMS = [
     { href: "/", label: "Home" },
@@ -78,10 +84,57 @@
 
   var nav = document.createElement("nav");
   nav.className = "nav-modern";
+
+  var toggle = document.createElement("button");
+  toggle.type = "button";
+  toggle.className = "nav-toggle";
+  toggle.setAttribute("aria-label", "Menü öffnen");
+  toggle.setAttribute("aria-expanded", "false");
+  toggle.setAttribute("aria-controls", "navMenu");
+  toggle.innerHTML =
+    '<span class="nav-brand">Atelierdufour</span>' +
+    '<span class="nav-burger" aria-hidden="true"><span></span><span></span><span></span></span>';
+
   var ul = document.createElement("ul");
+  ul.id = "navMenu";
   items.forEach(function (item) {
     ul.insertAdjacentHTML("beforeend", itemHtml(item));
   });
+
+  nav.appendChild(toggle);
   nav.appendChild(ul);
   document.body.insertBefore(nav, document.body.firstChild);
+
+  function isDesktop() {
+    return window.matchMedia("(min-width: " + MOBILE_MAX + "px)").matches;
+  }
+
+  function setOpen(open) {
+    nav.classList.toggle("nav-open", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Menü schliessen" : "Menü öffnen");
+    document.body.classList.toggle("nav-locked", open);
+  }
+
+  toggle.addEventListener("click", function () {
+    setOpen(!nav.classList.contains("nav-open"));
+  });
+
+  nav.addEventListener("click", function (e) {
+    if (e.target.closest && e.target.closest("a")) {
+      setOpen(false);
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      setOpen(false);
+    }
+  });
+
+  window.addEventListener("resize", function () {
+    if (isDesktop()) {
+      setOpen(false);
+    }
+  });
 })();

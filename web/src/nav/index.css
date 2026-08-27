@@ -4,6 +4,11 @@
  * every page, so the nav look-and-feel is defined once instead of being
  * copy-pasted into each page's stylesheet.
  *
+ * Mobile-first: below 860px the nav is a compact bar with a hamburger button
+ * that opens a full-screen menu. At 860px and above the classic horizontal
+ * bar with hover dropdowns is shown. The breakpoint is the only place that
+ * decides which UI is applied, so no page-specific media queries are needed.
+ *
  * Pages whose layout needs a different nav placement can override the outer
  * box in their own CSS, e.g. full-width navs or a different outer margin:
  *   .nav-modern { width: 100%; margin: 0 0 16px; }
@@ -13,81 +18,217 @@
   width: 100%;
   background: #333;
   color: #fff;
-  overflow: visible;
   border-radius: 14px;
   margin: 24px 24px 16px;
-}
-
-.nav-modern ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.nav-modern li {
   position: relative;
 }
 
-.nav-modern a {
+/* --- Mobile toggle bar ------------------------------------------------ */
+
+.nav-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px 18px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-brand {
+  letter-spacing: .02em;
+}
+
+.nav-burger {
+  position: relative;
+  width: 22px;
+  height: 16px;
+}
+
+.nav-burger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform .25s ease, opacity .25s ease, top .25s ease;
+}
+
+.nav-burger span:nth-child(1) { top: 0; }
+.nav-burger span:nth-child(2) { top: 7px; }
+.nav-burger span:nth-child(3) { top: 14px; }
+
+.nav-modern.nav-open .nav-burger span:nth-child(1) { top: 7px; transform: rotate(45deg); }
+.nav-modern.nav-open .nav-burger span:nth-child(2) { opacity: 0; }
+.nav-modern.nav-open .nav-burger span:nth-child(3) { top: 7px; transform: rotate(-45deg); }
+
+/* --- Menu: hidden on mobile, full-screen overlay when open ------------- */
+
+.nav-modern ul {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-modern.nav-open ul {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(20, 20, 26, .98);
+  padding: 80px 16px 24px;
+  overflow-y: auto;
+  animation: nav-fade .28s ease;
+}
+
+@keyframes nav-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.nav-modern.nav-open .nav-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 10001;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .1);
+}
+
+.nav-modern.nav-open .nav-brand {
+  display: none;
+}
+
+.nav-modern.nav-open a {
+  display: block;
   color: #fff;
   text-decoration: none;
-  padding: 12px 15px;
-  display: block;
-  line-height: normal;
+  font-size: 20px;
   text-align: center;
-  white-space: nowrap;
+  padding: 12px 24px;
+  border-radius: 10px;
 }
 
-.nav-modern a:hover {
-  background: #666;
-  text-decoration: none;
+.nav-modern.nav-open a:hover {
+  background: rgba(255, 255, 255, .12);
 }
 
-.nav-modern li:first-child > a {
-  border-radius: 14px 0 0 14px;
+.nav-modern.nav-open a[aria-current="page"] {
+  background: rgba(255, 255, 255, .15);
 }
 
-.nav-modern .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #333;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  border-radius: 0 0 14px 14px;
-  top: 100%;
-  left: 0;
+.nav-modern.nav-open .dropdown-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: static;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.nav-modern.nav-open .dropdown-content a {
+  font-size: 15px;
+  opacity: .85;
+  padding: 8px 24px;
+}
+
+body.nav-locked {
   overflow: hidden;
 }
 
-.nav-modern li:hover .dropdown-content {
-  display: block;
-}
+/* --- Desktop: classic horizontal bar ----------------------------------- */
 
-.nav-modern .dropdown-content a {
-  padding: 12px 15px;
-  text-align: left;
-  white-space: nowrap;
-  border-radius: 0;
-}
+@media (min-width: 860px) {
+  .nav-modern {
+    overflow: visible;
+  }
 
-.nav-modern .dropdown-content a:last-child {
-  border-radius: 0 0 14px 14px;
-}
+  .nav-toggle {
+    display: none;
+  }
 
-.nav-modern .dropdown-content a:hover {
-  background-color: #666;
-}
+  .nav-modern ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-@media (max-width: 600px) {
+  .nav-modern li {
+    position: relative;
+  }
+
+  .nav-modern a {
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 15px;
+    display: block;
+    line-height: normal;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .nav-modern a:hover {
+    background: #666;
+    text-decoration: none;
+  }
+
+  .nav-modern li:first-child > a {
+    border-radius: 14px 0 0 14px;
+  }
+
   .nav-modern .dropdown-content {
-    position: static;
-    box-shadow: none;
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 0 0 14px 14px;
+    top: 100%;
+    left: 0;
+    overflow: hidden;
+  }
+
+  .nav-modern li:hover .dropdown-content {
+    display: block;
+  }
+
+  .nav-modern .dropdown-content a {
+    padding: 12px 15px;
+    text-align: left;
+    white-space: nowrap;
     border-radius: 0;
   }
+
   .nav-modern .dropdown-content a:last-child {
-    border-radius: 0;
+    border-radius: 0 0 14px 14px;
+  }
+
+  .nav-modern .dropdown-content a:hover {
+    background-color: #666;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-modern.nav-open ul {
+    animation: none;
   }
 }
