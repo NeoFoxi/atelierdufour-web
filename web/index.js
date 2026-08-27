@@ -34,6 +34,28 @@ const images = [
     function updateSlideText() {
       slideText.textContent = slideTexts[index] || "";
       slideText.style.opacity = slideTexts[index] ? "1" : "0";
+      fitSlideText();
+    }
+
+    function fitSlideText() {
+      if (!slideText.textContent) return;
+      const style = getComputedStyle(slideText);
+      const min = parseFloat(style.getPropertyValue("--text-min")) || 11;
+      const max = parseFloat(style.getPropertyValue("--text-max")) || 22;
+      const maxH = slider.clientHeight * 0.42;
+
+      slideText.style.fontSize = max + "px";
+      if (slideText.scrollHeight <= maxH) return;
+
+      let lo = min;
+      let hi = max;
+      for (let i = 0; i < 8; i++) {
+        const mid = (lo + hi) / 2;
+        slideText.style.fontSize = mid + "px";
+        if (slideText.scrollHeight > maxH) hi = mid;
+        else lo = mid;
+      }
+      slideText.style.fontSize = lo + "px";
     }
 
     const intervalMs = 3000;
@@ -137,3 +159,13 @@ const images = [
     updateUI();
     updateSlideText();
     startAuto();
+
+    if ("ResizeObserver" in window) {
+      new ResizeObserver(fitSlideText).observe(slider);
+    } else {
+      let resizeTimer = null;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(fitSlideText, 100);
+      });
+    }

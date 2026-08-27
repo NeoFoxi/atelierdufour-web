@@ -31,6 +31,7 @@ body {
   box-shadow: var(--shadow);
   user-select: none;
   touch-action: pan-y;
+  container-type: inline-size;
 }
 
 .layer {
@@ -114,12 +115,15 @@ body {
 }
 
 .slide-text {
+  --text-min: 11px;
+  --text-max: 22px;
   position: absolute;
   left: 90px;
   bottom: 56px;
   max-width: 50%;
   color: #fff;
   font-size: 22px;
+  font-size: clamp(var(--text-min), 2.7cqi, var(--text-max));
   font-family: sans-serif;
   text-align: left;
   line-height: 1.4;
@@ -133,6 +137,16 @@ body {
   transition: opacity 420ms ease;
   word-wrap: break-word;
   overflow-wrap: break-word;
+}
+
+@media (max-width: 600px) {
+  .slide-text {
+    left: 48px;
+    right: 48px;
+    bottom: 46px;
+    max-width: none;
+    line-height: 1.35;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
