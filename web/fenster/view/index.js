@@ -18,7 +18,7 @@ function isValidId(id) {
 if (!isValidId(urlId)) {
     showError();
 } else {
-    fetch(`/schaufenster/data/object/${urlId}/properties.json`)
+    fetch(`/fenster/data/object/${urlId}/properties.json`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Nicht gefunden (${response.status})`);
@@ -26,7 +26,7 @@ if (!isValidId(urlId)) {
             return response.json();
         })
         .then(objectPropertiesjson => {
-            document.getElementById("img").src = `/schaufenster/data/object/${urlId}/img.webp`;
+            document.getElementById("img").src = `/images/fenster/${urlId}.webp`;
             document.getElementById("card-title").innerHTML = objectPropertiesjson.title;
             document.getElementById("card-date").innerHTML = `${objectPropertiesjson.date.from} – ${objectPropertiesjson.date.to}`;
             document.getElementById("card-description").innerHTML = objectPropertiesjson.description;

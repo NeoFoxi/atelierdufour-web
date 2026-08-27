@@ -15,9 +15,9 @@
 
   var DEFAULT_ITEMS = [
     { href: "/", label: "Home" },
-    { href: "/tonerde", label: "Tonerde" },
-    { href: "/ausdrucksmalen", label: "Ausdrucksmalen" },
-    { href: "/schaufenster", label: "Schaufenster" },
+    { href: "/ton", label: "Tonerde" },
+    { href: "/malen", label: "Ausdrucksmalen" },
+    { href: "/fenster", label: "Schaufenster" },
     { href: "/ferienhaus", label: "Ferienhaus" },
     {
       href: "/workshops",
@@ -52,8 +52,7 @@
     var target = normalizePath(item.href);
     if (activeOverride) return target === normalizePath(activeOverride);
     if (current === "/") return target === "/";
-    // Nested section pages: keep the section link highlighted.
-    if (current.indexOf("/schaufenster/") === 0) return target === "/schaufenster";
+    if (current.indexOf("/fenster/") === 0) return target === "/fenster";
     if (current.indexOf("/workshop/") === 0) return target === current;
     return target === current;
   }

@@ -1,11 +1,11 @@
-fetch(`/schaufenster/data/properties.json`)
+fetch(`/fenster/data/properties.json`)
   .then(response => response.json())
   .then(async Propertiesjson => {
 
     for (let i = Propertiesjson.last_post; i >= 1; i--) {
       let number = i.toString().padStart(3, '0');
 
-        const response = await fetch(`/schaufenster/data/object/${number}/properties.json`);
+        const response = await fetch(`/fenster/data/object/${number}/properties.json`);
         const objectPropertiesjson = await response.json();
 
         object.innerHTML += `
@@ -25,7 +25,7 @@ fetch(`/schaufenster/data/properties.json`)
           ">
               
               <div style="width: 100%; height: 180px; overflow: hidden; border-radius: 8px; flex-shrink: 0; background-color: #f0f0f0;">
-                  <img src="/schaufenster/data/object/${number}/img.webp"
+                  <img src="/images/fenster/${number}.webp"
                       style="width: 100%; height: 100%; object-fit: cover;">
               </div>
 
@@ -67,7 +67,7 @@ fetch(`/schaufenster/data/properties.json`)
                   ${objectPropertiesjson.description}
               </p>
 
-              <button onclick="window.location.href='/schaufenster/view/?id=${number}'"
+              <button onclick="window.location.href='/fenster/view/?id=${number}'"
                       style="
                         width: 100%;
                         padding: 12px;

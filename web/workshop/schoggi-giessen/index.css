@@ -18,19 +18,25 @@ body {
 }
 
 .hero {
-  min-height: 60vh;
-  display: flex;
-  align-items: flex-end;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 248, 240, .95)),
-    url("/assets/atelierdufour/textures/2.webp");
-  background-size: cover;
-  background-position: center;
+  padding: 24px 0 0;
 }
 
-.hero-inner {
-  width: 100%;
-  padding: 600px 0 0;
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+  max-width: 1400px;
+  margin: 0 auto 22px;
+  padding: 0 20px;
+}
+
+.gallery img {
+  width: calc((100% - 44px) / 3);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .hero-card {
@@ -110,5 +116,9 @@ strong {
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr 1fr;
   }
 }

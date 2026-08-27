@@ -113,6 +113,28 @@ body {
   cursor: pointer;
 }
 
+.slide-text {
+  position: absolute;
+  left: 90px;
+  bottom: 56px;
+  max-width: 50%;
+  color: #fff;
+  font-size: 22px;
+  font-family: sans-serif;
+  text-align: left;
+  line-height: 1.4;
+  padding: 8px 14px;
+  background: rgba(0, 0, 0, .3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 8px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 420ms ease;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     --dur: 0ms;

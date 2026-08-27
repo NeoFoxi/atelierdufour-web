@@ -1,21 +1,28 @@
 const imgs = [
-  "/assets/ferienhaus/textures/1.webp",
-  "/assets/ferienhaus/textures/2.webp",
-  "/assets/ferienhaus/textures/3.webp",
-  "/assets/ferienhaus/textures/4.webp",
-  "/assets/ferienhaus/textures/5.webp",
-  "/assets/ferienhaus/textures/6.webp",
-  "/assets/ferienhaus/textures/7.webp",
-  "/assets/ferienhaus/textures/8.webp",
-  "/assets/ferienhaus/textures/9.webp",
-  "/assets/ferienhaus/textures/10.webp",
-  "/assets/ferienhaus/textures/11.webp",
-  "/assets/ferienhaus/textures/12.webp",
-  "/assets/ferienhaus/textures/13.webp",
-  "/assets/ferienhaus/textures/14.webp",
-  "/assets/ferienhaus/textures/15.webp",
-  "/assets/ferienhaus/textures/16.webp"
+  "/images/ferienhaus/1.webp",
+  "/images/ferienhaus/2.webp",
+  "/images/ferienhaus/3.webp",
+  "/images/ferienhaus/4.webp",
+  "/images/ferienhaus/5.webp",
+  "/images/ferienhaus/6.webp",
+  "/images/ferienhaus/7.webp",
+  "/images/ferienhaus/8.webp",
+  "/images/ferienhaus/9.webp",
+  "/images/ferienhaus/10.webp",
+  "/images/ferienhaus/11.webp",
+  "/images/ferienhaus/12.webp",
+  "/images/ferienhaus/13.webp",
+  "/images/ferienhaus/14.webp",
+  "/images/ferienhaus/15.webp",
+  "/images/ferienhaus/16.webp"
 ];
+
+function preloadImages() {
+  imgs.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+}
 
 const slider = document.getElementById("slider");
 const layerA = document.getElementById("layerA");
@@ -107,6 +114,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 buildNav();
+preloadImages();
 imgA.src = imgs[0];
 setLayer(layerA, 0, false);
 setLayer(layerB, 100, false);

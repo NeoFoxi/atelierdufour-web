@@ -11,7 +11,7 @@ body {
   line-height: 1.6;
 }
 .nav-modern {
-  margin: 0 24px 16px;
+  margin: 24px 24px 16px;
 }
 
 .container {
@@ -26,7 +26,7 @@ body {
   align-items: flex-end;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(238, 243, 255, .95)),
-    url("/assets/atelierdufour/textures/1.webp");
+    url("/images/malen/1.webp");
   background-size: cover;
   background-position: center;
 }
@@ -43,6 +43,17 @@ body {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 26px;
+}
+
+.grid-2 {
+  display: flex;
+  align-items: stretch;
+  gap: 22px;
+}
+
+.grid-2 .card:first-child,
+.grid-2 .card:last-child {
+  flex: 1;
 }
 
 h1 {
@@ -113,5 +124,8 @@ strong {
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+  .grid-2 {
+    flex-direction: column;
   }
 }

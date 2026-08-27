@@ -23,7 +23,7 @@ body {
   align-items: flex-end;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 248, 240, .95)),
-    url("/assets/atelierdufour/textures/6.webp");
+    url("/images/workshop/siebdruck/1.webp");
   background-size: cover;
   background-position: center;
 }
