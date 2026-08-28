@@ -1,193 +1,40 @@
-/* Homepage image slider.
+/* Homepage scroll reveal.
  *
- * Uses two transparent layers (A/B) that alternate: the incoming layer slides
- * in from the left or right while the outgoing layer slides out in the opposite
- * direction. This avoids white flashes between transitions.
- *
- * Auto-play advances every 3 seconds and pauses on hover. Keyboard arrows
- * and dot buttons provide manual navigation.
- *
- * Slide text is fitted to the available space using a binary search over font
- * sizes between --text-min and --text-max (defined in CSS).
+ * Adds the .is-visible class to .reveal elements when they enter the
+ * viewport, so hero and overview sections fade in as the visitor scrolls.
+ * Falls back to showing everything immediately when IntersectionObserver
+ * is unavailable or reduced motion is preferred.
  */
 
-const images = [
-      "/images/atelierdufour/2.webp",
-      "/images/atelierdufour/3.webp",
-      "/images/atelierdufour/4.webp",
-      "/images/atelierdufour/5.webp",
-      "/images/atelierdufour/6.webp"
-    ];
+(function () {
+  "use strict";
 
-    /* Preload all slider images so transitions are instant. */
-    function preloadImages() {
-      images.forEach(src => {
-        const img = new Image();
-        img.src = src;
-      });
-    }
+  var els = document.querySelectorAll(".reveal");
+  if (!els.length) return;
 
-    const slider = document.getElementById("slider");
-    const layerA = document.getElementById("layerA");
-    const layerB = document.getElementById("layerB");
-    const imgA = document.getElementById("imgA");
-    const imgB = document.getElementById("imgB");
-    const dotsEl = document.getElementById("dots");
-    const counter = document.getElementById("counter");
-    const autoToggle = document.getElementById("autoToggle");
-    const slideText = document.getElementById("slideText");
+  var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const slideTexts = [
-      "\"Der Schatten macht uns ganz. Er ist der Boden, aus dem Licht, das erst entstehen kann.\"",
-      "\"Ich werde dir die Hand reichen, nicht um dich aus dem Schatten zu ziehen sondern um dort mit dir zu stehen, bis die Dunkelheit ihre eigenen Farben zeigt.\"",
-      "\"Ich bin nicht hier um die Schatten auszulöschen, sondern um zu lernen wie ich mich nicht wieder in ihnen verliere.\"",
-      "\"Heilung bedeutet die Risse zu ehren, das Prisma zu nehmen und das Licht des Lebens in all seinen Farben zu brechen.\"",
-      "\"Vertraue dem Prozess, auch wenn du nicht siehst, wohin er dich führt. Die Schatten sind nur ein Teil des Weges.\""
-    ];
+  function showAll() {
+    els.forEach(function (el) {
+      el.classList.add("is-visible");
+    });
+  }
 
-    /* Display the quote for the current slide and trigger text fitting. */
-    function updateSlideText() {
-      slideText.textContent = slideTexts[index] || "";
-      slideText.style.opacity = slideTexts[index] ? "1" : "0";
-      fitSlideText();
-    }
+  if (prefersReduced || !("IntersectionObserver" in window)) {
+    showAll();
+    return;
+  }
 
-    /* Binary-search font size so the text fits within 42% of slider height. */
-    function fitSlideText() {
-      if (!slideText.textContent) return;
-      const style = getComputedStyle(slideText);
-      const min = parseFloat(style.getPropertyValue("--text-min")) || 11;
-      const max = parseFloat(style.getPropertyValue("--text-max")) || 22;
-      const maxH = slider.clientHeight * 0.42;
-
-      slideText.style.fontSize = max + "px";
-      if (slideText.scrollHeight <= maxH) return;
-
-      let lo = min;
-      let hi = max;
-      for (let i = 0; i < 8; i++) {
-        const mid = (lo + hi) / 2;
-        slideText.style.fontSize = mid + "px";
-        if (slideText.scrollHeight > maxH) hi = mid;
-        else lo = mid;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        io.unobserve(entry.target);
       }
-      slideText.style.fontSize = lo + "px";
-    }
-
-    const intervalMs = 3000;
-    let index = 0;
-    let activeA = true;
-    let timer = null;
-    let animating = false;
-
-    /* Update dot highlights and counter text. */
-    function updateUI() {
-      counter.textContent = `${index + 1} / ${images.length}`;
-      [...dotsEl.children].forEach((d, i) => {
-        d.setAttribute("aria-current", i === index);
-      });
-    }
-
-    /* Create dot buttons — one per image. */
-    function buildDots() {
-      dotsEl.innerHTML = "";
-      images.forEach((_, i) => {
-        const d = document.createElement("button");
-        d.className = "dot";
-        d.onclick = () => goTo(i, true);
-        dotsEl.appendChild(d);
-      });
-    }
-
-    /* Position a layer at x% (instant or animated). */
-    function setLayer(el, x, animate) {
-      el.style.transition = animate ? "transform 420ms ease" : "none";
-      el.style.transform = `translateX(${x}%)`;
-    }
-
-    /* Transition to image at index i. Direction inferred from i vs current. */
-    function goTo(i, manual) {
-      if (animating) return;
-
-      const nextIndex = (i + images.length) % images.length;
-      if (nextIndex === index) return;
-
-      animating = true;
-      const goingForward = i > index;
-
-      const current = activeA ? layerA : layerB;
-      const next = activeA ? layerB : layerA;
-      const nextImg = activeA ? imgB : imgA;
-
-      nextImg.src = images[nextIndex];
-
-      const enterX = goingForward ? 100 : -100;
-      const exitX = goingForward ? -100 : 100;
-
-      setLayer(next, enterX, false);
-      setLayer(current, 0, false);
-
-      next.offsetWidth;
-
-      setLayer(next, 0, true);
-      setLayer(current, exitX, true);
-
-      next.addEventListener("transitionend", () => {
-        setLayer(current, 100, false);
-        activeA = !activeA;
-        index = nextIndex;
-        animating = false;
-        updateUI();
-        updateSlideText();
-      }, { once: true });
-    }
-
-    function next(manual) { goTo(index + 1, manual); }
-    function prev(manual) { goTo(index - 1, manual); }
-
-    /* Start auto-advance timer (only if toggle is checked). */
-    function startAuto() {
-      stopAuto();
-      if (!autoToggle.checked) return;
-      timer = setInterval(() => next(false), intervalMs);
-    }
-
-    /* Stop auto-advance timer. */
-    function stopAuto() {
-      if (timer) clearInterval(timer);
-      timer = null;
-    }
-
-    autoToggle.addEventListener("change", () => {
-      autoToggle.checked ? startAuto() : stopAuto();
     });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
 
-    document.getElementById("nextBtn").onclick = () => next(true);
-    document.getElementById("prevBtn").onclick = () => prev(true);
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowRight") next(true);
-      if (e.key === "ArrowLeft") prev(true);
-    });
-
-    slider.addEventListener("mouseenter", stopAuto);
-    slider.addEventListener("mouseleave", startAuto);
-
-    buildDots();
-    preloadImages();
-    imgA.src = images[0];
-    setLayer(layerA, 0, false);
-    setLayer(layerB, 100, false);
-    updateUI();
-    updateSlideText();
-    startAuto();
-
-    if ("ResizeObserver" in window) {
-      new ResizeObserver(fitSlideText).observe(slider);
-    } else {
-      let resizeTimer = null;
-      window.addEventListener("resize", () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(fitSlideText, 100);
-      });
-    }
+  els.forEach(function (el) {
+    io.observe(el);
+  });
+})();

@@ -1,20 +1,16 @@
 /* Page: Ferienhaus (Holiday House Rental)
- *
- * Side-by-side layout (slider left, info right) on desktop, stacked on mobile.
- * Image slider with thumbnails, pricing, description, and contact card.
+ * Base styles from /src/base/index.css.
  */
 
 :root {
   --bg: #f5f5f5;
-  --card: #ffffff;
+  --accent: #0066cc;
   --shadow: 0 4px 12px rgba(0, 0, 0, .08);
   --radius: 8px;
   --text: #333333;
   --text-light: #666666;
-  --primary: #0066cc;
   --maxw: 1000px;
   --dur: 420ms;
-  --ease: cubic-bezier(.22, .8, .2, 1);
 }
 
 /* --- Layout ----------------------------------------------------------- */
@@ -25,7 +21,6 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 24px;
-  color: var(--text);
 }
 
 .nav-modern {
@@ -164,7 +159,7 @@ body {
 
 .thumb.active {
   opacity: 1;
-  border: 2px solid var(--primary);
+  border: 2px solid var(--accent);
 }
 
 /* --- Info section ----------------------------------------------------- */
@@ -180,7 +175,7 @@ body {
 .listing-badge {
   display: inline-block;
   background: #e6f0ff;
-  color: var(--primary);
+  color: var(--accent);
   padding: 4px 10px;
   border-radius: 4px;
   font-size: 13px;
@@ -212,7 +207,7 @@ body {
 .price {
   font-size: 28px;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--accent);
   margin: 0;
 }
 
@@ -254,29 +249,6 @@ body {
 .contact-info {
   font-size: 15px;
   line-height: 1.6;
-}
-
-.contact-link {
-  color: var(--primary);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.contact-btn {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  background: var(--primary);
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: background 0.2s;
-}
-
-.contact-btn:hover {
-  background: #0052a3;
 }
 
 @media (prefers-reduced-motion: reduce) {

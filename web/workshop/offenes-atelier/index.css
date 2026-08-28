@@ -1,20 +1,9 @@
 /* Page: Offenes Atelier — unique overrides only.
- *
- * Background-image hero. Shared workshop styles come from /src/workshop/index.css.
+ * Shared workshop styles from /src/workshop/index.css.
  */
 
 .hero {
-  min-height: 60vh;
-  display: flex;
-  align-items: flex-end;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 248, 240, .95)),
     url("/images/workshop/offenes-atelier/2.webp");
-  background-size: cover;
-  background-position: center;
-}
-
-.hero-inner {
-  width: 100%;
-  padding: 600px 0 0;
 }

@@ -1,10 +1,10 @@
 /* Page: Schoggi giessen — unique overrides only.
- *
- * Gallery hero with two side-by-side images instead of a background-image hero.
- * Shared workshop styles come from /src/workshop/index.css.
+ * Shared workshop styles from /src/workshop/index.css.
  */
 
 .hero {
+  min-height: auto;
+  display: block;
   padding: 24px 0 0;
 }
 
@@ -24,10 +24,4 @@
   object-fit: cover;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-}
-
-@media (max-width: 900px) {
-  .gallery {
-    grid-template-columns: 1fr 1fr;
-  }
 }

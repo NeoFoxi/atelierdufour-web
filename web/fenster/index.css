@@ -1,7 +1,5 @@
 /* Page: Schaufenster (Window Display Gallery)
- *
- * Flex-wrap gallery of object cards. Cards are built dynamically via JS
- * from JSON data files using a <template> element.
+ * Base styles from /src/base/index.css.
  */
 
 .nav-modern {
@@ -33,7 +31,6 @@ body {
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   background-color: white;
-  box-sizing: border-box;
 }
 
 .fenster-card-img-wrap {
@@ -88,23 +85,4 @@ body {
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-}
-
-.fenster-card-btn {
-  width: 100%;
-  padding: 12px;
-  background-color: #555;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1.1em;
-  font-weight: bold;
-  margin-top: auto;
-  flex-shrink: 0;
-  transition: background 0.2s;
-}
-
-.fenster-card-btn:hover {
-  background-color: #333;
 }

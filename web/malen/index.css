@@ -1,20 +1,9 @@
 /* Page: Ausdrucksmalen — unique overrides only.
- *
- * Background-image hero with blue-tinted gradient. Shared styles from
- * /src/malen-ton/index.css.
+ * Shared styles from /src/malen-ton/index.css and /src/base/index.css.
  */
 
 .hero {
-  display: flex;
-  align-items: flex-end;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(238, 243, 255, .95)),
     url("/images/malen/1.webp");
-  background-size: cover;
-  background-position: center;
-}
-
-.hero-inner {
-  width: 100%;
-  padding: 600px 0 0;
 }

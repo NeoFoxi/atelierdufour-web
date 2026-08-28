@@ -1,0 +1,94 @@
+/* Shared footer styles.
+ *
+ * Styles the site footer (rendered by src/footer/index.js) uniformly across
+ * every page, so the footer look-and-feel is defined once instead of being
+ * copy-pasted into each page's stylesheet. Colors come from the design tokens
+ * in /src/base/index.css, so the footer automatically follows each page
+ * group's color scheme (malen-ton, workshop).
+ */
+
+.site-footer {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 48px auto 8px;
+  padding: 28px 0 0;
+  border-top: 1px solid rgba(0, 0, 0, .12);
+  border-top: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.7;
+}
+
+.site-footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px 40px;
+}
+
+.footer-col {
+  flex: 1 1 220px;
+  min-width: 200px;
+}
+
+.footer-brand-name {
+  display: inline-block;
+  margin-bottom: 6px;
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footer-tagline {
+  margin: 0 0 10px;
+}
+
+.footer-address {
+  margin: 0;
+}
+
+.footer-heading {
+  margin: 0 0 10px;
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.footer-nav ul,
+.footer-contact ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-nav li,
+.footer-contact li {
+  margin: 4px 0;
+}
+
+.site-footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-legal {
+  margin: 20px 0 0;
+  text-align: center;
+  font-size: .85rem;
+  opacity: .85;
+}
+
+@media (max-width: 700px) {
+  .site-footer-inner {
+    flex-direction: column;
+    gap: 18px;
+  }
+}

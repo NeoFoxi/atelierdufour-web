@@ -1,84 +1,18 @@
 /* Page: Workshops (Overview)
- *
- * Warm brown color scheme. Background image covers the entire page. Workshop
- * cards link to individual workshop detail pages.
+ * Shared workshop styles from /src/workshop/index.css.
+ * Base styles from /src/base/index.css.
  */
 
-:root {
-  --card: #ffffff;
-  --text: #2e2a24;
-  --muted: #7a6e64;
-  --shadow: 0 4px 12px rgba(0, 0, 0, .1);
-  --radius: 18px;
-  --max: 1100px;
-}
-
 body {
-  color: var(--text);
-  line-height: 1.6;
   background:
     url("/images/workshop/offenes-atelier/1.webp");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
-
-.container {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* --- Hero section ----------------------------------------------------- */
 
 .hero {
-  min-height: 60vh;
-  display: flex;
-  align-items: flex-end;
-  background:
-    url("/images/workshop/offenes-atelier/1.webp");
-  background-size: cover;
-  background-position: center;
   background-attachment: fixed;
-}
-
-.hero-inner { width: 100%; padding: 600px 0 0; }
-
-.hero-card {
-  width: 100%;
-  background: #ffffff;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 26px;
-}
-
-h1 {
-  margin: 0;
-  font-size: 2.4rem;
-  line-height: 1.15;
-  color: #5a3010;
-}
-
-main { padding: 50px 0 80px; }
-section { margin-bottom: 32px; }
-
-.card {
-  background: var(--card);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 26px;
-}
-
-h2 {
-  margin: 0 0 10px;
-  font-size: 1.35rem;
-  color: #7a3a10;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
 }
 
 /* --- Workshop cards --------------------------------------------------- */
@@ -106,12 +40,3 @@ h2 {
 
 .workshop-card h2 { margin-bottom: 8px; }
 .workshop-card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
-
-p { margin: 0 0 10px; }
-ul { padding-left: 18px; margin: 10px 0 0; color: var(--muted); }
-main li { margin: 6px 0; }
-strong { color: #5a3010; }
-
-@media (max-width: 900px) {
-  .grid { grid-template-columns: 1fr; }
-}

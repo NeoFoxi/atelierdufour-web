@@ -1,16 +1,9 @@
 /* Page: Kontakt (Contact)
- *
- * Card-based layout with address and Google Maps embed. Neutral grey
- * color scheme with blue accent for links.
+ * Base styles from /src/base/index.css.
  */
 
 :root {
-  --card: #fff;
   --fg: #222;
-  --accent: #0066cc;
-  --dark: #111;
-  --radius: 18px;
-  --shadow: 0 18px 60px rgba(0, 0, 0, .15);
 }
 
 body {
@@ -20,6 +13,7 @@ body {
   align-items: center;
   padding: 24px;
 }
+
 .nav-modern {
   width: 100%;
   margin: 0 0 16px;
@@ -36,7 +30,6 @@ main {
 
 h1 {
   margin: 0 0 24px;
-  font-size: 2.4rem;
 }
 
 .content-wrapper {
@@ -51,16 +44,12 @@ h1 {
     align-items: flex-start;
   }
 
-/* --- Address & links -------------------------------------------------- */
-
-address {
+  address {
     flex: 1;
     min-width: 280px;
   }
 
-/* --- Map embed -------------------------------------------------------- */
-
-.map {
+  .map {
     flex: 1.5;
     margin-top: 0 !important;
   }
@@ -76,37 +65,19 @@ address p {
   margin: 12px 0;
 }
 
-a {
+address a {
   color: var(--accent);
   text-decoration: none;
   font-weight: 600;
 }
 
-a:hover {
+address a:hover {
   text-decoration: underline;
 }
 
-address a:hover {
-  text-decoration: none;
-}
-
 .nav-button {
-  display: inline-block;
   margin-top: 24px;
-  padding: 14px 22px;
-  border-radius: var(--radius);
-  background: var(--dark);
-  color: #fff;
-  font-weight: 700;
-  letter-spacing: .3px;
-  transition: background .15s ease, color .15s ease;
   text-align: center;
-}
-
-.nav-button:hover {
-  background: #3a3a3a;
-  color: #fff;
-  text-decoration: none;
 }
 
 .map {
@@ -122,15 +93,11 @@ address a:hover {
 }
 
 @media (max-width: 600px) {
-/* --- Layout ----------------------------------------------------------- */
-
-body {
+  body {
     padding: 12px;
   }
 
-/* --- Main content card ------------------------------------------------ */
-
-main {
+  main {
     padding: 24px 16px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, .05);
   }
@@ -139,9 +106,7 @@ main {
     font-size: 1.8rem;
   }
 
-/* --- Navigation button ------------------------------------------------ */
-
-.nav-button {
+  .nav-button {
     display: block;
     width: 100%;
   }
