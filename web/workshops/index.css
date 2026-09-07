@@ -5,7 +5,7 @@
 
 body {
   background:
-    url("/images/workshop/offenes-atelier/1.webp");
+    url("/images/workshop/offenes-atelier/1.webp") no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
