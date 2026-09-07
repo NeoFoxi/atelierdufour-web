@@ -11,10 +11,10 @@
  *
  * Pages whose layout needs a different nav placement can override the outer
  * box in their own CSS, e.g. full-width navs or a different outer margin:
- *   .nav-modern { width: 100%; margin: 0 0 16px; }
+ *   .nav { width: 100%; margin: 0 0 16px; }
  */
 
-.nav-modern {
+.nav {
   width: 100%;
   background: #333;
   color: #fff;
@@ -65,20 +65,20 @@
 .nav-burger span:nth-child(2) { top: 7px; }
 .nav-burger span:nth-child(3) { top: 14px; }
 
-.nav-modern.nav-open .nav-burger span:nth-child(1) { top: 7px; transform: rotate(45deg); }
-.nav-modern.nav-open .nav-burger span:nth-child(2) { opacity: 0; }
-.nav-modern.nav-open .nav-burger span:nth-child(3) { top: 7px; transform: rotate(-45deg); }
+.nav.nav-open .nav-burger span:nth-child(1) { top: 7px; transform: rotate(45deg); }
+.nav.nav-open .nav-burger span:nth-child(2) { opacity: 0; }
+.nav.nav-open .nav-burger span:nth-child(3) { top: 7px; transform: rotate(-45deg); }
 
 /* --- Menu: hidden on mobile, full-screen overlay when open ------------- */
 
-.nav-modern ul {
+.nav ul {
   display: none;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.nav-modern.nav-open ul {
+.nav.nav-open ul {
   display: flex;
   position: fixed;
   inset: 0;
@@ -98,7 +98,7 @@
   to { opacity: 1; }
 }
 
-.nav-modern.nav-open .nav-toggle {
+.nav.nav-open .nav-toggle {
   position: fixed;
   top: 16px;
   right: 16px;
@@ -112,11 +112,11 @@
   background: rgba(255, 255, 255, .1);
 }
 
-.nav-modern.nav-open .nav-brand {
+.nav.nav-open .nav-brand {
   display: none;
 }
 
-.nav-modern.nav-open a {
+.nav.nav-open a {
   display: block;
   color: #fff;
   text-decoration: none;
@@ -127,15 +127,15 @@
   border-radius: 10px;
 }
 
-.nav-modern.nav-open a:hover {
+.nav.nav-open a:hover {
   background: rgba(255, 255, 255, .12);
 }
 
-.nav-modern.nav-open a[aria-current="page"] {
+.nav.nav-open a[aria-current="page"] {
   background: rgba(255, 255, 255, .15);
 }
 
-.nav-modern.nav-open .dropdown-content {
+.nav.nav-open .dropdown-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -146,7 +146,7 @@
   overflow: visible;
 }
 
-.nav-modern.nav-open .dropdown-content a {
+.nav.nav-open .dropdown-content a {
   font-size: 15px;
   opacity: .85;
   padding: 8px 24px;
@@ -159,7 +159,7 @@ body.nav-locked {
 /* --- Desktop: classic horizontal bar ----------------------------------- */
 
 @media (min-width: 860px) {
-  .nav-modern {
+  .nav {
     overflow: visible;
   }
 
@@ -167,16 +167,16 @@ body.nav-locked {
     display: none;
   }
 
-  .nav-modern ul {
+  .nav ul {
     display: flex;
     flex-wrap: wrap;
   }
 
-  .nav-modern li {
+  .nav li {
     position: relative;
   }
 
-  .nav-modern a {
+  .nav a {
     color: #fff;
     text-decoration: none;
     font-weight: 400;
@@ -187,16 +187,16 @@ body.nav-locked {
     white-space: nowrap;
   }
 
-  .nav-modern a:hover {
+  .nav a:hover {
     background: #666;
     text-decoration: none;
   }
 
-  .nav-modern li:first-child > a {
+  .nav li:first-child > a {
     border-radius: 14px 0 0 14px;
   }
 
-  .nav-modern .dropdown-content {
+  .nav .dropdown-content {
     display: none;
     position: absolute;
     background-color: #333;
@@ -209,28 +209,28 @@ body.nav-locked {
     overflow: hidden;
   }
 
-  .nav-modern li:hover .dropdown-content {
+  .nav li:hover .dropdown-content {
     display: block;
   }
 
-  .nav-modern .dropdown-content a {
+  .nav .dropdown-content a {
     padding: 12px 15px;
     text-align: left;
     white-space: nowrap;
     border-radius: 0;
   }
 
-  .nav-modern .dropdown-content a:last-child {
+  .nav .dropdown-content a:last-child {
     border-radius: 0 0 14px 14px;
   }
 
-  .nav-modern .dropdown-content a:hover {
+  .nav .dropdown-content a:hover {
     background-color: #666;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nav-modern.nav-open ul {
+  .nav.nav-open ul {
     animation: none;
   }
 }

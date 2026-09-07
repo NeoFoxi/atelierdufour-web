@@ -17,7 +17,7 @@ body {
   min-height: 100vh;
 }
 
-.nav-modern {
+.nav {
   width: 100%;
   margin: 0 0 16px;
 }
@@ -93,7 +93,7 @@ h1 {
     font-size: 1.8rem;
   }
 
-  .nav-modern {
+  .nav {
     border-radius: 12px;
     margin-bottom: 16px;
   }

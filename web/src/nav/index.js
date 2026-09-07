@@ -21,10 +21,16 @@
 
   var DEFAULT_ITEMS = [
     { href: "/", label: "Home" },
-    { href: "/ton", label: "Tonerde" },
-    { href: "/malen", label: "Ausdrucksmalen" },
+    {
+      href: "/ig",
+      label: "Integrale Gestaltungsarbeit",
+      children: [
+        { href: "/schatten", label: "Schatten" },
+        { href: "/ton", label: "Tonerde" },
+        { href: "/malen", label: "Ausdrucksmalen" },
+      ]
+    },
     { href: "/fenster", label: "Schaufenster" },
-    { href: "/ferienhaus", label: "Ferienhaus" },
     {
       href: "/workshops",
       label: "Workshops",
@@ -35,8 +41,13 @@
         { href: "/workshop/offenes-atelier", label: "Offenes Atelier" }
       ]
     },
-    { href: "/ueber-mich", label: "Über mich" },
-    { href: "/kontakt", label: "Kontakt" }
+    {
+      href: "/kontakt",
+      label: "Kontakt",
+      children: [
+        { href: "/ueber-mich", label: "Über mich" }
+      ]
+    }
   ];
 
   var config = (typeof window.navConfig === "object" && window.navConfig) || {};
@@ -83,7 +94,7 @@
   }
 
   var nav = document.createElement("nav");
-  nav.className = "nav-modern";
+  nav.className = "nav";
 
   var toggle = document.createElement("button");
   toggle.type = "button";

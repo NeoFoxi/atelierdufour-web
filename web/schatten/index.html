@@ -1,0 +1,44 @@
+﻿<!doctype html>
+<html lang="de-CH">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atelier Dufour</title>
+
+  <link rel="stylesheet" href="/src/base/index.css">
+
+  <link rel="stylesheet" href="/src/nav/index.css">
+
+  <link rel="stylesheet" href="index.css">
+  <script src="/src/nav/index.js" defer></script>
+</head>
+
+<body>
+
+  <main class="slider" id="slider">
+    <div class="layer" id="layerA"><img id="imgA"></div>
+    <div class="layer" id="layerB"><img id="imgB"></div>
+    <div class="slide-text" id="slideText">Atelier Dufour</div>
+
+    <div class="controls">
+      <button class="btn" id="prevBtn">‹</button>
+      <button class="btn" id="nextBtn">›</button>
+    </div>
+
+    <div class="footer">
+      <div class="dots" id="dots"></div>
+      <div style="display:flex;gap:10px;">
+        <span class="pill" id="counter">1 / 5</span>
+        <label class="pill">
+          <input type="checkbox" id="autoToggle" checked>
+          Auto
+        </label>
+      </div>
+    </div>
+  </main>
+
+  <script src="index.js" defer></script>
+</body>
+
+</html>
