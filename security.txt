@@ -1,0 +1,7 @@
+Contact: mailto:max@atelierdufour.ch
+Contact: mailto:m@neofoxi.net
+Contact: mailto:technik.wunder@icloud.com
+Contact: mailto:manuela@atelierdufour.ch
+Contact: mailto:maureroesch@icloud.com
+Expires: 2030-09-08T10:09:00.000Z
+Preferred-Languages: de, en, fr
