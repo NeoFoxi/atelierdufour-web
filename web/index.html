@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Atelier Dufour – Integrales Gestalten, Ausdrucksmalen & Workshops</title>
+  <link rel="canonical" href="https://atelierdufour.ch/" />
+  <meta name="robots" content="index, follow" />
 
   <link rel="stylesheet" href="/src/base/index.css">
 
@@ -15,6 +17,48 @@
   <link rel="stylesheet" href="index.css">
   <script src="/src/nav/index.js" defer></script>
   <script src="/src/footer/index.js" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://atelierdufour.ch/#atelier",
+        "name": "Atelier Dufour",
+        "url": "https://atelierdufour.ch/",
+        "description": "Atelier für integrales Gestalten, Ausdrucksmalen, Arbeit mit Tonerde INTON® und kreative Workshops in Biel/Bienne, Schweiz.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Biel/Bienne",
+          "addressCountry": "CH"
+        },
+        "founder": { "@id": "https://atelierdufour.ch/#person" },
+        "makesOffer": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Integrales Gestalten mit Tonerde INTON®" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ausdrucksmalen" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Offenes Atelier" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kreative Workshops für Kinder und Jugendliche" } }
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://atelierdufour.ch/#person",
+        "name": "Manuela Maurer",
+        "url": "https://atelierdufour.ch/ueber-mich",
+        "jobTitle": "Künstlerin und Kunsttherapeutin i.A.",
+        "worksFor": { "@id": "https://atelierdufour.ch/#atelier" }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://atelierdufour.ch/#website",
+        "url": "https://atelierdufour.ch/",
+        "name": "Atelier Dufour",
+        "inLanguage": "de-CH",
+        "publisher": { "@id": "https://atelierdufour.ch/#atelier" }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>

@@ -1,0 +1,38 @@
+# Atelier Dufour
+
+> Atelier Dufour is an art studio in Biel/Bienne, Switzerland, run by Manuela
+> Maurer. It offers integrales Gestalten with Tonerde INTON®, Ausdrucksmalen
+> (expressive painting), an open studio, and creative workshops for children
+> and young people.
+
+Atelier Dufour is the studio of Manuela Maurer, Künstlerin und Kunsttherapeutin
+i.A. Work centres on process-oriented, non-judgemental creative practice:
+working with Tonerde INTON® clay, expressive painting at a large wall, and
+workshops that let children and young people experiment with different
+materials and techniques. The studio also shows the exhibition project
+"Schaufenster" with artist Martina Baldinger, and shares a holiday house in the
+Gantrisch region.
+
+## Core pages
+- [Home](https://atelierdufour.ch/): Overview of the studio's offers, current open-door dates, and contact.
+- [Workshops](https://atelierdufour.ch/workshops): Creative workshops for children and young people.
+- [Integrales Gestalten mit Tonerde INTON®](https://atelierdufour.ch/ton): Work with INTON® clay.
+- [Ausdrucksmalen](https://atelierdufour.ch/malen): Expressive painting at a large wall.
+- [Schatten](https://atelierdufour.ch/schatten): Slideshow on the theme "Schatten".
+- [Schaufenster](https://atelierdufour.ch/fenster): Exhibition project with Martina Baldinger.
+- [Ferienhaus](https://atelierdufour.ch/ferienhaus): Holiday house in the Gantrisch area.
+- [Über mich](https://atelierdufour.ch/ueber-mich): About Manuela Maurer.
+- [Kontakt](https://atelierdufour.ch/kontakt): Contact and visit.
+
+## Workshops
+- [Offenes Atelier](https://atelierdufour.ch/workshop/offenes-atelier): Open studio for ages 8 and up.
+- [Pappmaché](https://atelierdufour.ch/workshop/pappmache): Modelling with papier-mâché.
+- [Schoggi giessen](https://atelierdufour.ch/workshop/schoggi-giessen): Casting and decorating chocolate.
+- [Siebdruck](https://atelierdufour.ch/workshop/siebdruck): Screen printing on fabric or paper.
+
+## Related llms.txt
+- [NeoFoxi llms.txt](https://neofoxi.net/llms.txt): machine-readable index for the developer behind this site.
+
+## Contact
+- Email: manuela@atelierdufour.ch
+- Location: Biel/Bienne, Switzerland
