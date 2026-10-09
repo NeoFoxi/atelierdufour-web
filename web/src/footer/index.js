@@ -28,7 +28,6 @@
     { href: "/ton", label: "Tonerde" },
     { href: "/malen", label: "Ausdrucksmalen" },
     { href: "/fenster", label: "Schaufenster" },
-    { href: "/ferienhaus", label: "Ferienhaus" },
     { href: "/workshops", label: "Workshops" },
     { href: "/ueber-mich", label: "Über mich" },
     { href: "/kontakt", label: "Kontakt" }
