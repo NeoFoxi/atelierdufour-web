@@ -5,5 +5,5 @@ Contact: https://neofoxi.net
 Contact: https://github.com/NeoFoxi
 Contact: mailto:manuela@atelierdufour.ch
 Contact: mailto:maureroesch@icloud.com
-Expires: 2031-09-08T10:09:00.000Z
+Expires: 2031-10-09T00:00:00.000Z
 Preferred-Languages: de, en
