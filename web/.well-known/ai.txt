@@ -1,0 +1,11 @@
+# AI Crawler Permissions — Atelier Dufour
+# https://atelierdufour.ch
+
+User-Agent: *
+Allow: /
+
+# Alle Inhalte dürfen von KI-Suchmaschinen indexiert und zitiert werden
+# (ChatGPT Search, Perplexity, Claude, Google Gemini AI Overviews).
+# Trainings-Crawler sind ebenfalls erlaubt.
+# Allgemeine Anfragen: manuela@atelierdufour.ch
+# Technische Fragen: max@atelierdufour.ch

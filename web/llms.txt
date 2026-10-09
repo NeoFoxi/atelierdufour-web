@@ -14,7 +14,7 @@ materials and techniques. The studio also shows the exhibition project
 Gantrisch region.
 
 ## Core pages
-- [Home](https://atelierdufour.ch/): Overview of the studio's offers, current open-door dates, and contact.
+- [Home](https://atelierdufour.ch): Overview of the studio's offers, current open-door dates, and contact.
 - [Workshops](https://atelierdufour.ch/workshops): Creative workshops for children and young people.
 - [Integrales Gestalten mit Tonerde INTON®](https://atelierdufour.ch/ton): Work with INTON® clay.
 - [Ausdrucksmalen](https://atelierdufour.ch/malen): Expressive painting at a large wall.

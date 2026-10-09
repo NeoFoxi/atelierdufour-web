@@ -1,0 +1,28 @@
+{
+  "name": "Atelier Dufour",
+  "description": "Atelier für integrales Gestalten mit Tonerde INTON®, Ausdrucksmalen nach integralem Ansatz und kreative Workshops für Kinder und Jugendliche in Biel/Bienne, Schweiz. Geführt von Manuela Maurer, Künstlerin und Kunsttherapeutin i.A.",
+  "url": "https://atelierdufour.ch",
+  "lastModified": "2026-10-09",
+  "category": "Kunst-Atelier und kreative Workshops",
+  "language": "de-CH",
+  "topics": [
+    "Integrales Gestalten mit Tonerde INTON®",
+    "Ausdrucksmalen nach integralem Ansatz",
+    "Kreative Workshops für Kinder und Jugendliche",
+    "Offenes Atelier",
+    "Kunsttherapeutische Gestaltung",
+    "Ausstellungsprojekt Schaufenster",
+    "Ferienhaus im Gantrisch-Gebiet"
+  ],
+  "author": {
+    "name": "Manuela Maurer",
+    "jobTitle": "Künstlerin und Kunsttherapeutin i.A.",
+    "url": "https://atelierdufour.ch/ueber-mich"
+  },
+  "contact": {
+    "general": "manuela@atelierdufour.ch",
+    "technical": "max@atelierdufour.ch",
+    "telephone": "+41774531082",
+    "address": "General-Dufour-Strasse 138, 2502 Biel/Bienne, Schweiz"
+  }
+}
