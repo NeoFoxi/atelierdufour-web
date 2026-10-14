@@ -21,14 +21,14 @@ fetch(`/fenster/data/properties.json`)
       const card = template.content.cloneNode(true);
 
       card.querySelector(".fenster-card-img").src = `/images/fenster/${number}.webp`;
-      card.querySelector(".fenster-card-title").textContent = data.title;
-      card.querySelector(".fenster-card-date").textContent = `${data.date.from} – ${data.date.to}`;
+      card.querySelector(".fenster-card-title").innerHTML = data.title;
+      card.querySelector(".fenster-card-date").innerHTML = `${data.date.from} – ${data.date.to}`;
 
       const link = card.querySelector(".fenster-card-link");
       link.href = `https://${data.website}`;
-      link.textContent = data.website;
+      link.innerHTML = data.website;
 
-      card.querySelector(".fenster-card-desc").textContent = data.description;
+      card.querySelector(".fenster-card-desc").innerHTML = data.description;
 
       const btn = card.querySelector(".fenster-card-btn");
       btn.addEventListener("click", () => {
