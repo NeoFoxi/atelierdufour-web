@@ -91,6 +91,11 @@ body {
   opacity: .95;
 }
 
+.hero-text .cancelled {
+  color: #09d510;
+  font-weight: 700;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
