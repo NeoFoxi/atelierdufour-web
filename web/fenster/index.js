@@ -15,7 +15,7 @@ fetch(`/fenster/data/properties.json`)
     for (let i = Propertiesjson.last_post; i >= 1; i--) {
       let number = i.toString().padStart(3, '0');
 
-      const response = await fetch(`/fenster/data/objects/${number}/properties.json`);
+      const response = await fetch(`/fenster/data/object/${number}/properties.json`);
       const data = await response.json();
 
       const card = template.content.cloneNode(true);
