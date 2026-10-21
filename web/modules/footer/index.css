@@ -3,7 +3,7 @@
  * Styles the site footer (rendered by src/footer/index.js) uniformly across
  * every page, so the footer look-and-feel is defined once instead of being
  * copy-pasted into each page's stylesheet. Colors come from the design tokens
- * in /src/base/index.css, so the footer automatically follows each page
+ * in /modules/base/index.css, so the footer automatically follows each page
  * group's color scheme (malen-ton, workshop).
  */
 

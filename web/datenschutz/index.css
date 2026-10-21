@@ -1,0 +1,84 @@
+/* Page: Datenschutzerklärung
+ * Base styles from /modules/base/index.css.
+ */
+
+:root {
+  --fg: #222;
+}
+
+body {
+  color: var(--fg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+}
+
+.nav {
+  width: 100%;
+  margin: 0 0 16px;
+}
+
+main {
+  width: 100%;
+  max-width: 900px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+  padding: 32px;
+}
+
+h1 {
+  margin: 0 0 24px;
+}
+
+section {
+  margin-bottom: 28px;
+}
+
+section:last-child {
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+address {
+  font-style: normal;
+  line-height: 1.6;
+}
+
+address p {
+  margin: 8px 0;
+}
+
+a {
+  color: var(--accent);
+}
+
+ul {
+  padding-left: 1.4em;
+}
+
+.last-updated {
+  color: var(--muted);
+  font-size: .9rem;
+  margin-top: 32px;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+  }
+
+  main {
+    padding: 24px 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .05);
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+}

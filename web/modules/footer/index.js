@@ -115,7 +115,20 @@
 
   var legalP = document.createElement("p");
   legalP.className = "footer-legal";
-  legalP.textContent = "© " + new Date().getFullYear() + " " + legal;
+  legalP.textContent = "© " + new Date().getFullYear() + " " + legal + " · ";
+
+  [
+    { href: "/impressum", label: "Impressum" },
+    { href: "/datenschutz", label: "Datenschutz" }
+  ].forEach(function (item, i) {
+    if (i > 0) {
+      legalP.appendChild(document.createTextNode(" · "));
+    }
+    var a = document.createElement("a");
+    a.href = item.href;
+    a.textContent = item.label;
+    legalP.appendChild(a);
+  });
 
   footer.appendChild(inner);
   footer.appendChild(legalP);

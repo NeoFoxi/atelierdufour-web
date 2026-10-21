@@ -1,7 +1,7 @@
 /* Shared malen/ton styles.
  *
  * Blue-purple color scheme used by both the Ausdrucksmalen and Tonerde pages.
- * Overrides the base tokens from /src/base/index.css.
+ * Overrides the base tokens from /modules/base/index.css.
  */
 
 :root {

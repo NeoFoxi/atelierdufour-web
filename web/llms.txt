@@ -21,6 +21,8 @@ materials and techniques. The studio also shows the exhibition project
 - [Schaufenster](https://atelierdufour.ch/fenster): Exhibition project with Martina Baldinger.
 - [Über mich](https://atelierdufour.ch/ueber-mich): About Manuela Maurer.
 - [Kontakt](https://atelierdufour.ch/kontakt): Contact and visit.
+- [Impressum](https://atelierdufour.ch/impressum): Legal notice: responsible party, hosting, disclaimer, copyright.
+- [Datenschutzerklärung](https://atelierdufour.ch/datenschutz): Privacy policy (Swiss revDSG): hosting logs, Google Maps and Google Forms, contact data, data subject rights.
 
 ## Workshops
 - [Offenes Atelier](https://atelierdufour.ch/workshop/offenes-atelier): Open studio for ages 8 and up.
