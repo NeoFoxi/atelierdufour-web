@@ -25,7 +25,7 @@ function isValidId(id) {
 if (!isValidId(urlId)) {
     showError();
 } else {
-    fetch(`/fenster/data/object/${urlId}/properties.json`)
+    fetch(`/fenster/data/objects/${urlId}/properties.json`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Nicht gefunden (${response.status})`);
